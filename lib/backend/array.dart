@@ -29,6 +29,7 @@ class ArrayTile {
       final int points = mergelist.length == 1 ? mergelist.first.value : mergelist.map((tile) => tile.value).reduce((total, value) => total + value).toInt();
       _score += points;
     }
+    hscore?.setlocal_score(_score);
     if (_score > hscore!.value) {
       hscore?.setHighscore(_score);
     }
