@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Image.asset('assets/icon/2048.png'),
             ),
             Text(
-              "SUDOKU",
+              "2048 Game",
               style: TextStyle(
                 fontSize: 30,
               ),
