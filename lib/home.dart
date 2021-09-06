@@ -27,12 +27,12 @@ class NaviDrawer extends StatelessWidget {
         ])),
       ),
       Container(
+          height: 100,
           decoration: BoxDecoration(
-        border: Border.all(width: 10),
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.green,
-        height: 100,
-      )),
+            border: Border.all(width: 10),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.green,
+          )),
     ]));
   }
 }
