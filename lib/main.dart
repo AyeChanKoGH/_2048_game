@@ -47,11 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: 100,
-              width: 100,
-              child: Image.asset('assets/icon/2048.png'),
-            ),
+            Image.asset('assets/icon/2048.png', width: 200, height: 200),
             Text(
               "2048 Game",
               style: TextStyle(
