@@ -18,7 +18,10 @@ class NaviDrawer extends StatelessWidget {
         child: ListView(children: <Widget>[
       DrawerHeader(
         child: Center(
-          child: Text('2048 GAME'),
+          child: Text('2048 GAME',
+              style: TextStyle(
+                fontSize: 25,
+              )),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
