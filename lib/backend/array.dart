@@ -18,9 +18,9 @@ class ArrayTile {
     }
     hscore = HighScore(highscore);
   }
-  factory ArrayTile.fromjson(int w, int h, int highscore, List grid) {
+  factory ArrayTile.fromjson(int w, int h, int score, int highscore, List grid) {
     List narray = grid.map((row) => row.map((value) => Tile(value)).toList()).toList();
-    return ArrayTile(w, h, highscore, array: narray);
+    return ArrayTile(w, h, highscore, array: narray).._score = score;
   }
   void addScore() {
     List? flatlist = array?.expand((value) => value).toList();

@@ -29,12 +29,13 @@ class MyTableViewState extends State<MyTableView> {
 
   void getLocal() async {
     int highscore = await getHighscore();
+    int score = await getScore();
     List? grid = await getLocalGrid();
     setState(() {
       if (grid == null) {
         _board = ArrayTile(w, h, highscore);
       } else {
-        _board = ArrayTile.fromjson(w, h, highscore, grid);
+        _board = ArrayTile.fromjson(w, h, score, highscore, grid);
       }
     });
   }

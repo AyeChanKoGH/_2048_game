@@ -1,4 +1,14 @@
-# twoN2048
+# 2048 Game 
+
+This Project is my 2nd project in Flutter.
+
+##  Play Style
+  - Like other 2048 game, you can play to get lergest point swiping around up, down, left, right.
+  - That app save current position and best score 
+##  Feature
+  - SwipeDetection with easy_gesture_detector.
+  - Saving Game state to Local with shared_preferences
+
 
 A new Flutter project created with [FlutLab](https://flutlab.io)
 
