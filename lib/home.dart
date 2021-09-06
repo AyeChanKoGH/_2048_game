@@ -28,6 +28,7 @@ class NaviDrawer extends StatelessWidget {
       ),
       Container(
           decoration: BoxDecoration(
+        border: Border.all(width: 10),
         borderRadius: BorderRadius.circular(10),
         color: Colors.green,
       )),
