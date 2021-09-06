@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Map<String, Color?> colormatch = {
-  '0': Colors.lightBlueAccent[300],
+  '0': Colors.lightBlue[200],
   '2': Colors.blue,
   '4': Colors.tealAccent,
   '8': Colors.indigo,
