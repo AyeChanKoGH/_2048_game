@@ -104,7 +104,7 @@ class MyTableViewState extends State<MyTableView> {
         ),
         SizedBox(height: 40),
         ElevatedButton(
-          child: Text('New Game'),
+          child: Text('New Game', style: TextStyle(fontSize: 20)),
           style: ElevatedButton.styleFrom(
             primary: Colors.lightBlueAccent[200],
             minimumSize: Size(200, 50),
