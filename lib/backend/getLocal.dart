@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 const String high_score = 'highscore';
-const String local_grid = 'Local_grid';
+const String local_grid = 'Local_Grid';
 
 class HighScore {
   int value = 0;
@@ -35,11 +35,9 @@ Future<int> getHighscore() async {
 Future<List?> getLocalGrid() async {
   SharedPreferences _pref = await SharedPreferences.getInstance();
   String? string_grid = await _pref.getString(local_grid);
-  print(string_grid);
   if (string_grid == null) {
     return null;
   }
   List? grid = json.decode(string_grid)?.toList();
-
   return grid;
 }

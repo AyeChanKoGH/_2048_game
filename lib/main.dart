@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: MyHomePage(title: '2024'),
+      home: MyHomePage(title: '2024 Game'),
       debugShowCheckedModeBanner: false,
     );
   }

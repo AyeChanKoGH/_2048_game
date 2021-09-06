@@ -7,6 +7,25 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({required this.title});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('$title')), body: MyTableView());
+    return Scaffold(drawer: NaviDrawer(), appBar: AppBar(title: Text('$title')), body: MyTableView());
+  }
+}
+
+class NaviDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+        child: Column(children: <Widget>[
+      DrawerHeader(
+        child: Center(
+          child: Text('2048 GAME'),
+        ),
+        decoration: BoxDecoration(
+            gradient: RadialGradient(center: Alignment.topLeft, colors: <Color>[
+          Colors.lightBlueAccent,
+          Colors.tealAccent
+        ])),
+      ),
+    ]));
   }
 }

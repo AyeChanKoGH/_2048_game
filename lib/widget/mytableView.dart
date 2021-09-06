@@ -29,9 +29,7 @@ class MyTableViewState extends State<MyTableView> {
 
   void getLocal() async {
     int highscore = await getHighscore();
-    print(high_score);
     List? grid = await getLocalGrid();
-    print(grid);
     setState(() {
       if (grid == null) {
         _board = ArrayTile(w, h, highscore);
