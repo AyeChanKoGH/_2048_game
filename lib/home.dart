@@ -21,7 +21,7 @@ class NaviDrawer extends StatelessWidget {
           child: Text('2048 GAME'),
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40)),
           gradient: RadialGradient(center: Alignment.topLeft, radius: 0.8, colors: <Color>[
             Colors.lightBlueAccent,
             Colors.tealAccent
