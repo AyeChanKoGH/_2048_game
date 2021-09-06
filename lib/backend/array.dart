@@ -35,6 +35,11 @@ class ArrayTile {
     }
   }
 
+  void addgrid() {
+    List? grid = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
+    hscore?.setlocal_value(json.encode(grid!));
+  }
+
   void reset() {
     array = [];
     for (int x = 0; x < h; x++) {
@@ -44,6 +49,8 @@ class ArrayTile {
       }
     }
     _score = 0;
+    hscore?.setlocal_score(_score);
+    addgrid();
     addNew();
     addNew();
   }
@@ -86,8 +93,7 @@ class ArrayTile {
     if (ismove == true) {
       addNew();
       addScore();
-      List? grid = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
-      hscore?.setlocal_value(json.encode(grid!));
+      addgrid();
     }
   }
 
