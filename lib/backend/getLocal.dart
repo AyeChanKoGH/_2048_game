@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 const String high_score = 'highscore';
-const String local_grid = 'Local_Grid';
+const String local_grid = 'Local_grid';
 
 class HighScore {
   int value = 0;
