@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './home.dart';
+import 'dart:async';
 
 void main() => runApp(MyApp());
 
@@ -16,8 +17,47 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: MyHomePage(title: '2024 Game'),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: '2048 Game'))));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              height: 100,
+              width: 100,
+              child: Image.asset('assets/icon/2048.png'),
+            ),
+            Text(
+              "SUDOKU",
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
     );
   }
 }
