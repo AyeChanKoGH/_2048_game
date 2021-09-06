@@ -42,6 +42,7 @@ class ArrayTile {
         array?[x].add(Tile(0));
       }
     }
+    _score = 0;
     addNew();
     addNew();
   }
