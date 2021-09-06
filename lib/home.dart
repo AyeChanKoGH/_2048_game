@@ -24,7 +24,9 @@ class NaviDrawer extends StatelessWidget {
             gradient: RadialGradient(center: Alignment.topLeft, radius: 0.8, colors: <Color>[
           Colors.lightBlueAccent,
           Colors.tealAccent
-        ])),
+          
+        ]
+        borderRadius:BorderRadius.circular(10),)),
       ),
       Container(
           height: 100,
