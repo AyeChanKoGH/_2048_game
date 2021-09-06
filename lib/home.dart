@@ -15,7 +15,7 @@ class NaviDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: Column(children: <Widget>[
+        child: ListView(children: <Widget>[
       DrawerHeader(
         child: Center(
           child: Text('2048 GAME'),
@@ -28,9 +28,6 @@ class NaviDrawer extends StatelessWidget {
           ]),
         ),
       ),
-      ListView(children: <Widget>[
-        ListTile(leading: Icon(Icons.account_circle), title: Text('Sign In')),
-      ])
     ]));
   }
 }
