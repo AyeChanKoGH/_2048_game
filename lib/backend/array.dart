@@ -50,9 +50,9 @@ class ArrayTile {
     }
     _score = 0;
     hscore?.setlocal_score(_score);
+    addNew();
+    addNew();
     addgrid();
-    addNew();
-    addNew();
   }
 
   List empty() {
