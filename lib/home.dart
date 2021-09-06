@@ -28,13 +28,9 @@ class NaviDrawer extends StatelessWidget {
           ]),
         ),
       ),
-      Container(
-          height: 100,
-          decoration: BoxDecoration(
-            border: Border.all(width: 10),
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.green,
-          )),
+      ListView(children: <Widget>[
+        ListTile(leading: Icon(Icons.account_circle), title: Text('Sign In')),
+      ])
     ]));
   }
 }
