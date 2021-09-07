@@ -37,7 +37,7 @@ class ArrayTile {
     }
   }
 
-  Tile operator [](int index) {
+  operator [](int index) {
     return array?[index];
   }
 
