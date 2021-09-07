@@ -176,6 +176,8 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget buildContainer(int row, int col) {
+    return Container();
+    /*
     final tile = _board?[row][col];
     final mergin = 5.0;
     final _height = getchildheight(context, w, mergin);
@@ -191,6 +193,6 @@ class MyTableViewState extends State<MyTableView> {
                   : tile.value != 0
                       ? ValueContainer(tile.value)
                       : EmptyContainer(),
-    );
+    );*/
   }
 }
