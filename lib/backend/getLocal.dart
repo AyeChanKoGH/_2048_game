@@ -5,20 +5,20 @@ const String high_score = 'highscore';
 const String local_grid = 'Local_Grid';
 const String _score = 'Score';
 
-class HighScore {
-  int value = 0;
+class Local {
+  int highscore = 0;
   SharedPreferences? _pref;
-  HighScore(this.value);
+  Local();
   initpref() async {
     if (_pref == null) {
       _pref = await SharedPreferences.getInstance();
     }
   }
 
-  void setHighscore(int val) async {
-    value = val;
+  void setHighscore(int value) async {
+    highscore = value;
     await initpref();
-    _pref?.setInt(high_score, value);
+    _pref?.setInt(high_score, highscore);
   }
 
   void setlocal_value(String grid) async {

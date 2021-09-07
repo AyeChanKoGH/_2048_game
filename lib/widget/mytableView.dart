@@ -20,7 +20,6 @@ class MyTableViewState extends State<MyTableView> {
   static const h = 4; //w=width ,h=height
   ArrayTile? _board;
   bool isgameOver = false;
-  //int highscore = 0;
   @override
   void initState() {
     getLocal();
@@ -33,7 +32,7 @@ class MyTableViewState extends State<MyTableView> {
     List? grid = await getLocalGrid();
     setState(() {
       if (grid == null) {
-        _board = ArrayTile(w, h, highscore);
+        _board = ArrayTile(w, h);
       } else {
         _board = ArrayTile.fromjson(w, h, score, highscore, grid);
       }
@@ -177,7 +176,7 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget buildContainer(int row, int col) {
-    final tile = _board?.array?[row][col];
+    final tile = _board?[row][col];
     final mergin = 5.0;
     final _height = getchildheight(context, w, mergin);
     return Container(
