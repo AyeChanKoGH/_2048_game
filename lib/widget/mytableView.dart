@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:_2048/backend/array.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
+import 'package:flutter/services.dart';
 import './emptyContainer.dart';
 import './color.dart';
 import './newView.dart';
@@ -24,10 +25,18 @@ class MyTableViewState extends State<MyTableView> {
   void initState() {
     getLocal();
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
   }
 
   void dispose() {
     super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   void getLocal() async {
