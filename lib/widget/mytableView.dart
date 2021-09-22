@@ -90,7 +90,7 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget build(BuildContext context) {
-    if (isinitilize) {
+    if (!isinitilize) {
       return CircularProgressIndicator();
     }
     return Column(
