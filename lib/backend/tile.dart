@@ -1,13 +1,8 @@
 class Tile {
   final int value;
-  bool _merge = false;
-  bool _isnew = false;
-  get merge => _merge;
-  get isnew => _isnew;
-  Tile(this.value, {merge, isnew}) {
-    _merge = merge ?? false;
-    _isnew = isnew ?? false;
-  }
+  bool merge = false;
+  bool isnew = false;
+  Tile(this.value, {this.merge = false, this.isnew = false});
 }
 
 class Pos {
