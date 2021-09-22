@@ -24,6 +24,7 @@ class MyTableViewState extends State<MyTableView> {
   bool isinitilize = false;
   @override
   void initState() {
+    _board = ArrayTile(w, h);
     getLocal();
     super.initState();
     SystemChrome.setPreferredOrientations([
