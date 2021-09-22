@@ -10,6 +10,8 @@ class Pos {
   Pos(this.x, this.y);
 }
 
+enum Direction { left, right, up, down }
+
 class Vector {
   final int x, y;
   Vector(this.x, this.y);
