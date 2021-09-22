@@ -50,6 +50,6 @@ Future<List?> getLocalGrid() async {
   if (string_grid == null) {
     return null;
   }
-  List? grid = json.decode(string_grid)?.toList();
+  List grid = json.decode(string_grid)?.toList();
   return grid;
 }
