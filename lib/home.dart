@@ -18,7 +18,7 @@ class NaviDrawer extends StatelessWidget {
         child: ListView(children: <Widget>[
       DrawerHeader(
         child: Center(
-          child: Text('2048 GAME',
+          child: const Text('2048 GAME',
               style: TextStyle(
                 fontSize: 25,
               )),
