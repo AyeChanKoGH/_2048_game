@@ -7,7 +7,7 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({required this.title});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: NaviDrawer(), appBar: AppBar(title: Text('$title')), body: MyTableView());
+    return Scaffold(drawer: NaviDrawer(), appBar: AppBar(title: Text('$title')), body: Container()); //MyTableView());
   }
 }
 
