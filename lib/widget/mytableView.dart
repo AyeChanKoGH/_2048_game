@@ -21,6 +21,7 @@ class MyTableViewState extends State<MyTableView> {
   static const h = 4; //w=width ,h=height
   late ArrayTile _board;
   bool isgameOver = false;
+  bool isinitilize = false;
   @override
   void initState() {
     getLocal();
@@ -49,6 +50,7 @@ class MyTableViewState extends State<MyTableView> {
       } else {
         _board = ArrayTile.fromjson(w, h, score, highscore, grid);
       }
+      isinitilize = true;
     });
   }
 
@@ -87,6 +89,9 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget build(BuildContext context) {
+    if (isinitilize) {
+      return CircularProgressIndicator();
+    }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
