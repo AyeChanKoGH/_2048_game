@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:_2048/backend/array.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
+import 'package:flutter/services.dart';
 import './emptyContainer.dart';
 import './color.dart';
 import './newView.dart';
@@ -20,24 +21,37 @@ class MyTableViewState extends State<MyTableView> {
   static const h = 4; //w=width ,h=height
   ArrayTile? _board;
   bool isgameOver = false;
-  //int highscore = 0;
+  bool isinitilize = false;
   @override
   void initState() {
+    _board = ArrayTile(w, h);
     getLocal();
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
+  }
+
+  void dispose() {
+    super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   void getLocal() async {
     int highscore = await getHighscore();
-    print(high_score);
+    int score = await getScore();
     List? grid = await getLocalGrid();
-    print(grid);
     setState(() {
       if (grid == null) {
-        _board = ArrayTile(w, h, highscore);
+        _board = ArrayTile(w, h);
       } else {
-        _board = ArrayTile.fromjson(w, h, highscore, grid);
+        _board = ArrayTile.fromjson(w, h, score, highscore, grid);
       }
+      isinitilize = true;
     });
   }
 
@@ -76,6 +90,9 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget build(BuildContext context) {
+    if (!isinitilize) {
+      return CircularProgressIndicator();
+    }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -105,7 +122,7 @@ class MyTableViewState extends State<MyTableView> {
         ),
         SizedBox(height: 40),
         ElevatedButton(
-          child: Text('New Game'),
+          child: Text('New Game', style: TextStyle(fontSize: 20)),
           style: ElevatedButton.styleFrom(
             primary: Colors.lightBlueAccent[200],
             minimumSize: Size(200, 50),
@@ -178,7 +195,7 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget buildContainer(int row, int col) {
-    final tile = _board?.array?[row][col];
+    final tile = _board?[row][col];
     final mergin = 5.0;
     final _height = getchildheight(context, w, mergin);
     return Container(

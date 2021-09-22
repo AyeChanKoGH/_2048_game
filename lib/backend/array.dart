@@ -8,19 +8,21 @@ class ArrayTile {
   List? array;
   bool ismove = false;
   int _score = 0;
-  HighScore? hscore;
+  Local local = Local();
   get score => _score;
-  get highscore => hscore?.value ?? 0;
+  get highscore => local.highscore;
   Random _random = Random();
-  ArrayTile(this.w, this.h, int highscore, {this.array}) {
+  ArrayTile(this.w, this.h) {
     if (array == null) {
       reset();
     }
-    hscore = HighScore(highscore);
   }
-  factory ArrayTile.fromjson(int w, int h, int highscore, List grid) {
+  factory ArrayTile.fromjson(int w, int h, int score, int highscore, List grid) {
     List narray = grid.map((row) => row.map((value) => Tile(value)).toList()).toList();
-    return ArrayTile(w, h, highscore, array: narray);
+    return ArrayTile(w, h)
+      .._score = score
+      ..local.highscore = highscore
+      ..array = narray;
   }
   void addScore() {
     List? flatlist = array?.expand((value) => value).toList();
@@ -29,9 +31,19 @@ class ArrayTile {
       final int points = mergelist.length == 1 ? mergelist.first.value : mergelist.map((tile) => tile.value).reduce((total, value) => total + value).toInt();
       _score += points;
     }
-    if (_score > hscore!.value) {
-      hscore?.setHighscore(_score);
+    local.setlocal_score(_score);
+    if (_score > local.highscore) {
+      local.setHighscore(_score);
     }
+  }
+
+  operator [](int index) {
+    return array?[index];
+  }
+
+  void addgrid() {
+    List? grid = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
+    local.setlocal_value(json.encode(grid!));
   }
 
   void reset() {
@@ -42,8 +54,11 @@ class ArrayTile {
         array?[x].add(Tile(0));
       }
     }
+    _score = 0;
+    local.setlocal_score(_score);
     addNew();
     addNew();
+    addgrid();
   }
 
   List empty() {
@@ -84,8 +99,7 @@ class ArrayTile {
     if (ismove == true) {
       addNew();
       addScore();
-      List? grid = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
-      hscore?.setlocal_value(json.encode(grid!));
+      addgrid();
     }
   }
 

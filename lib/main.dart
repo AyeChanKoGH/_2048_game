@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:_2048/widget/mytableView.dart';
-//import 'dart:math';
+import './home.dart';
+import 'dart:async';
+//import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -17,18 +20,47 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: MyHomePage(title: '2024'),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
 
-  MyHomePage({required this.title});
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => MyHomePage(title: '2048 Game'))));
+  }
+
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('$title')), body: MyTableView());
+    return Scaffold(
+      backgroundColor: Colors.tealAccent[100],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset('assets/icon/2048.png', width: 200, height: 200),
+            Text(
+              "2048 Game",
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+            CircularProgressIndicator(),
+          ],
+        ),
+      ),
+    );
   }
 }

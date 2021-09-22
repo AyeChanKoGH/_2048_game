@@ -1,4 +1,4 @@
-package com.example.twon2048
+package com.example._2048
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
