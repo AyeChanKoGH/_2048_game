@@ -19,7 +19,7 @@ class MyTableView extends StatefulWidget {
 class MyTableViewState extends State<MyTableView> {
   static const w = 4;
   static const h = 4; //w=width ,h=height
-  late ArrayTile _board;
+  ArrayTile? _board;
   bool isgameOver = false;
   bool isinitilize = false;
   @override
@@ -57,15 +57,15 @@ class MyTableViewState extends State<MyTableView> {
 
   void reset() {
     setState(() {
-      _board.reset();
+      _board?.reset();
       isgameOver = false;
     });
   }
 
   void swipe(String direction) {
     setState(() {
-      _board.swipe(direction);
-      isgameOver = _board.blocked();
+      _board?.swipe(direction);
+      isgameOver = _board?.blocked() ?? false;
     });
   }
 
@@ -166,7 +166,7 @@ class MyTableViewState extends State<MyTableView> {
                 width: 50,
                 height: 40,
                 color: Colors.cyanAccent,
-                child: Text('${_board.score}'),
+                child: Text('${_board?.score}'),
                 alignment: Alignment.center,
               )
             ],
@@ -186,7 +186,7 @@ class MyTableViewState extends State<MyTableView> {
                 height: 40,
                 width: 50,
                 color: Colors.cyanAccent,
-                child: Text('${_board.highscore}'),
+                child: Text('${_board?.highscore}'),
                 alignment: Alignment.center,
               ),
             ])),
@@ -195,7 +195,7 @@ class MyTableViewState extends State<MyTableView> {
   }
 
   Widget buildContainer(int row, int col) {
-    final tile = _board[row][col];
+    final tile = _board?[row][col];
     final mergin = 5.0;
     final _height = getchildheight(context, w, mergin);
     return Container(
