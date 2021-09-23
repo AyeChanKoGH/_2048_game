@@ -69,6 +69,7 @@ class MyTableViewState extends State<MyTableView> {
     });
   }
 
+/*
   void _onVerticalSwipe(SwipeDirection direction) {
     setState(() {
       if (direction == SwipeDirection.up) {
@@ -88,7 +89,7 @@ class MyTableViewState extends State<MyTableView> {
       }
     });
   }
-
+*/
   Widget build(BuildContext context) {
     if (!isinitilize) {
       return CircularProgressIndicator();
@@ -103,6 +104,7 @@ class MyTableViewState extends State<MyTableView> {
           child: Stack(children: <Widget>[
             Container(
               color: colormatch['background'],
+              /*
               child: SimpleGestureDetector(
                 onVerticalSwipe: _onVerticalSwipe,
                 onHorizontalSwipe: _onHorizontalSwipe,
@@ -110,12 +112,12 @@ class MyTableViewState extends State<MyTableView> {
                   verticalThreshold: 40.0,
                   horizontalThreshold: 40.0,
                   swipeDetectionBehavior: SwipeDetectionBehavior.continuousDistinct,
-                ),
-                child: Table(
-                  children: _getTableRow(),
-                ),
+                ),*/
+              child: Table(
+                children: _getTableRow(),
               ),
             ),
+            // ),
             isgameOver ? GameOver() : Container(),
             //GameOver(),
           ]),
