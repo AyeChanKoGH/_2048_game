@@ -13,5 +13,6 @@ Map<String, Color?> colormatch = {
   '512': Colors.redAccent,
   '1024': Colors.red,
   '2048': Colors.amber,
+  '4096': Colors.pinkAccent,
   'background': Colors.lightBlue[100],
 };
