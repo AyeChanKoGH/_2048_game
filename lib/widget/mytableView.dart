@@ -153,7 +153,7 @@ class MyTableViewState extends State<MyTableView> {
       children: <Widget>[
         Card(
           margin: EdgeInsets.all(10),
-          child: Column(
+          child: Row(
             children: <Widget>[
               Container(
                 width: 70,
@@ -163,8 +163,8 @@ class MyTableViewState extends State<MyTableView> {
                 alignment: Alignment.center,
               ),
               Container(
-                height: 60,
-                width: 70,
+                width: 50,
+                height: 40,
                 color: Colors.cyanAccent,
                 child: Text('${_board?.score}'),
                 alignment: Alignment.center,
@@ -174,7 +174,7 @@ class MyTableViewState extends State<MyTableView> {
         ),
         Card(
             margin: EdgeInsets.all(10),
-            child: Column(children: <Widget>[
+            child: Row(children: <Widget>[
               Container(
                 height: 40,
                 width: 70,
@@ -183,8 +183,8 @@ class MyTableViewState extends State<MyTableView> {
                 alignment: Alignment.center,
               ),
               Container(
-                height: 60,
-                width: 70,
+                height: 40,
+                width: 50,
                 color: Colors.cyanAccent,
                 child: Text('${_board?.highscore}'),
                 alignment: Alignment.center,
