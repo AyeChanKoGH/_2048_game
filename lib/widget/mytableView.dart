@@ -97,8 +97,9 @@ class MyTableViewState extends State<MyTableView> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
+        Spacer(),
         buildScoreView(),
-        SizedBox(height: 30),
+        Spacer(),
         AspectRatio(
           aspectRatio: 1.0,
           child: Stack(children: <Widget>[
@@ -121,7 +122,7 @@ class MyTableViewState extends State<MyTableView> {
             //GameOver(),
           ]),
         ),
-        SizedBox(height: 40),
+        Spacer(),
         ElevatedButton(
           child: Text('New Game', style: TextStyle(fontSize: 20)),
           style: ElevatedButton.styleFrom(
