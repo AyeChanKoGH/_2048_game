@@ -163,7 +163,6 @@ class MyTableViewState extends State<MyTableView> {
                 alignment: Alignment.center,
               ),
               Container(
-                width: 50,
                 height: 40,
                 color: Colors.cyanAccent,
                 child: Text('${_board?.score}'),
@@ -184,7 +183,6 @@ class MyTableViewState extends State<MyTableView> {
               ),
               Container(
                 height: 40,
-                width: 50,
                 color: Colors.cyanAccent,
                 child: Text('${_board?.highscore}'),
                 alignment: Alignment.center,
