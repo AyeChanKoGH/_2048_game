@@ -135,7 +135,8 @@ class MyTableViewState extends State<MyTableView> {
           onPressed: () {
             reset();
           },
-        )
+        ),
+        Spacer(),
       ],
     );
   }
