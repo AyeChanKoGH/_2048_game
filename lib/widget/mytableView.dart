@@ -95,6 +95,7 @@ class MyTableViewState extends State<MyTableView> {
     }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         buildScoreView(),
         SizedBox(height: 30),
