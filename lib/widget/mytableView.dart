@@ -28,8 +28,8 @@ class MyTableViewState extends State<MyTableView> {
     getLocal();
     super.initState();
     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ]);
   }
 
@@ -95,22 +95,24 @@ class MyTableViewState extends State<MyTableView> {
     }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
+        Spacer(),
         buildScoreView(),
-        SizedBox(height: 30),
+        Spacer(),
         AspectRatio(
           aspectRatio: 1.0,
           child: Stack(children: <Widget>[
-            Container(
-              color: colormatch['background'],
-              child: SimpleGestureDetector(
-                onVerticalSwipe: _onVerticalSwipe,
-                onHorizontalSwipe: _onHorizontalSwipe,
-                swipeConfig: SimpleSwipeConfig(
-                  verticalThreshold: 40.0,
-                  horizontalThreshold: 40.0,
-                  swipeDetectionBehavior: SwipeDetectionBehavior.continuousDistinct,
-                ),
+            SimpleGestureDetector(
+              onVerticalSwipe: _onVerticalSwipe,
+              onHorizontalSwipe: _onHorizontalSwipe,
+              swipeConfig: const SimpleSwipeConfig(
+                verticalThreshold: 40.0,
+                horizontalThreshold: 40.0,
+                swipeDetectionBehavior: SwipeDetectionBehavior.singularOnEnd,
+              ),
+              child: Container(
+                color: colormatch['background'],
                 child: Table(
                   children: _getTableRow(),
                 ),
@@ -120,7 +122,7 @@ class MyTableViewState extends State<MyTableView> {
             //GameOver(),
           ]),
         ),
-        SizedBox(height: 40),
+        Spacer(),
         ElevatedButton(
           child: Text('New Game', style: TextStyle(fontSize: 20)),
           style: ElevatedButton.styleFrom(
@@ -133,7 +135,8 @@ class MyTableViewState extends State<MyTableView> {
           onPressed: () {
             reset();
           },
-        )
+        ),
+        Spacer(),
       ],
     );
   }
@@ -163,7 +166,7 @@ class MyTableViewState extends State<MyTableView> {
                 alignment: Alignment.center,
               ),
               Container(
-                width: 50,
+                width: 70,
                 height: 40,
                 color: Colors.cyanAccent,
                 child: Text('${_board?.score}'),
@@ -184,7 +187,7 @@ class MyTableViewState extends State<MyTableView> {
               ),
               Container(
                 height: 40,
-                width: 50,
+                width: 70,
                 color: Colors.cyanAccent,
                 child: Text('${_board?.highscore}'),
                 alignment: Alignment.center,
