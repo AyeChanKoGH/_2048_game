@@ -101,16 +101,16 @@ class MyTableViewState extends State<MyTableView> {
         AspectRatio(
           aspectRatio: 1.0,
           child: Stack(children: <Widget>[
-            Container(
-              color: colormatch['background'],
-              child: SimpleGestureDetector(
-                onVerticalSwipe: _onVerticalSwipe,
-                onHorizontalSwipe: _onHorizontalSwipe,
-                swipeConfig: const SimpleSwipeConfig(
-                  verticalThreshold: 40.0,
-                  horizontalThreshold: 40.0,
-                  swipeDetectionBehavior: SwipeDetectionBehavior.singularOnEnd,
-                ),
+            SimpleGestureDetector(
+              onVerticalSwipe: _onVerticalSwipe,
+              onHorizontalSwipe: _onHorizontalSwipe,
+              swipeConfig: const SimpleSwipeConfig(
+                verticalThreshold: 40.0,
+                horizontalThreshold: 40.0,
+                swipeDetectionBehavior: SwipeDetectionBehavior.singularOnEnd,
+              ),
+              child: Container(
+                color: colormatch['background'],
                 child: Table(
                   children: _getTableRow(),
                 ),
@@ -153,7 +153,7 @@ class MyTableViewState extends State<MyTableView> {
       children: <Widget>[
         Card(
           margin: EdgeInsets.all(10),
-          child: Row(
+          child: Column(
             children: <Widget>[
               Container(
                 width: 70,
@@ -174,7 +174,7 @@ class MyTableViewState extends State<MyTableView> {
         ),
         Card(
             margin: EdgeInsets.all(10),
-            child: Row(children: <Widget>[
+            child: Column(children: <Widget>[
               Container(
                 height: 40,
                 width: 70,
