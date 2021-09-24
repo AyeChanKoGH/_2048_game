@@ -27,7 +27,7 @@ class GameOverState extends State<GameOver> with SingleTickerProviderStateMixin 
     return FadeTransition(
         opacity: _opacity,
         child: Container(
-          color: Colors.black45,
+          color: Colors.black54,
           padding: EdgeInsets.all(10),
           alignment: Alignment.center,
           child: Text('Game Over', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white)),
