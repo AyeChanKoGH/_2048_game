@@ -139,11 +139,13 @@ class ArrayTile {
 
   bool blocked() {
     List? vArray = array?.map((row) => row.map((obj) => obj.value)).toList();
+    bool canSwipUpDown = vArray?.map((n) => vArray.map((row) => row[vArray.indexOf(n)])).any((row) => checkAdjacentDuplicate(row)) ?? false;
+    print(canSwipUpDown);
     bool havespace = vArray?.expand((row) => row).contains(0) ?? false;
     if (havespace) return false;
     bool canSwipLeftRight = vArray?.any((row) => checkAdjacentDuplicate(row)) ?? false;
     if (canSwipLeftRight) return false;
-    bool canSwipUpDown = vArray?.map((n) => vArray.map((row) => row[vArray.indexOf(n)])).any((row) => checkAdjacentDuplicate(row)) ?? false;
+
     if (canSwipUpDown) return false;
     return true;
   }
