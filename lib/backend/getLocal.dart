@@ -52,5 +52,6 @@ Future<List?> getLocalGrid() async {
     return null;
   }
   List grid = json.decode(string_grid).toList();
+  print(grid);
   return grid;
 }
