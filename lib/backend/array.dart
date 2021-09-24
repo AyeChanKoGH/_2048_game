@@ -141,7 +141,7 @@ class ArrayTile {
     List? vArray = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
     //var canSwipUpDown = //vArray?.map((n) => print(n)); //row[vArray.indexOf(n)])); //any((row) => checkAdjacentDuplicate(row)) ?? false;
     //print(canSwipUpDown);
-    vArray?.map((n) => print(n));
+    vArray!.map((n) => print(n));
     //print(vArray);
     bool havespace = vArray?.expand((row) => row).contains(0) ?? false;
     if (havespace) return false;
