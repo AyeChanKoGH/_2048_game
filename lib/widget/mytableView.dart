@@ -67,7 +67,7 @@ class MyTableViewState extends State<MyTableView> {
     setState(() {
       _board?.swipe(direction);
       isgameOver = _board?.blocked() ?? false;
-      isgameOver = true;
+      //isgameOver = true;
     });
   }
 
