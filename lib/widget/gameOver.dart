@@ -6,26 +6,26 @@ class GameOver extends StatefulWidget {
 }
 
 class GameOverState extends State<GameOver> with SingleTickerProviderStateMixin {
-  AnimationController? controller;
-  Animation<double>? _opacity;
+  late AnimationController controller;
+  late Animation<double> _opacity;
   @override
   void initState() {
     controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _opacity = Tween<double>(begin: 0.0, end: 1.0).animate(controller!);
-    controller?.forward();
+    _opacity = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
+    controller.forward();
     super.initState();
   }
 
   @override
   void dispose() {
-    controller!.dispose();
+    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return FadeTransition(
-        opacity: _opacity!,
+        opacity: _opacity,
         child: Container(
           color: Colors.black38,
           padding: EdgeInsets.all(10),
