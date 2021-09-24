@@ -10,7 +10,7 @@ Map<String, Color?> colormatch = {
   '64': Colors.orangeAccent,
   '128': Colors.deepPurple,
   '256': Colors.cyanAccent,
-  '512': Colors.redAccent,
+  '512': Colors.redAccent[300],
   '1024': Colors.red,
   '2048': Colors.amber,
   '4096': Colors.pinkAccent,
