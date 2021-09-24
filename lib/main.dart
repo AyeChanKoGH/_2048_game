@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Fun Game 2048',
       // Application theme data, you can set the colors for the application as
       // you want
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       // A widget which will be started on application startup
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,

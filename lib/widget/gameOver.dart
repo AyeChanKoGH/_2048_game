@@ -30,7 +30,7 @@ class GameOverState extends State<GameOver> with SingleTickerProviderStateMixin 
           color: Colors.black38,
           padding: EdgeInsets.all(10),
           alignment: Alignment.center,
-          child: Text('Game Over', style: TextStyle(fontSize: 25)),
+          child: Text('Game Over', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         ));
   }
 }
