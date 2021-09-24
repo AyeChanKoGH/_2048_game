@@ -43,6 +43,7 @@ class ArrayTile {
 
   void addgrid() {
     List? grid = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
+    print(grid);
     local.setlocal_value(json.encode(grid!));
   }
 
