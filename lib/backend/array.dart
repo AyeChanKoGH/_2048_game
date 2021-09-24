@@ -78,6 +78,7 @@ class ArrayTile {
     Pos n_tile = ety[_random.nextInt(ety.length)];
     final n_value = _random.nextInt(10) == 0 ? 4 : 2;
     addTile(n_tile.x, n_tile.y, Tile(n_value, isnew: true));
+    addgrid();
   }
 
   void addTile(x, y, Tile tile) {
@@ -137,7 +138,7 @@ class ArrayTile {
   }
 
   bool blocked() {
-    List? vArray = array?.map((row) => row.map((obj) => obj.value)).toList();
+    List? vArray = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
     bool havespace = vArray?.expand((row) => row).contains(0) ?? false;
     if (havespace) return false;
     bool canSwipLeftRight = vArray?.any((row) => checkAdjacentDuplicate(row)) ?? false;
@@ -149,12 +150,13 @@ class ArrayTile {
 
   bool checkAdjacentDuplicate(Iterable mylist) {
     int val = 0;
-    for (int a in mylist) {
-      if (a == val) {
-        return true;
+    if (mylist.length > 1)
+      for (int a in mylist) {
+        if (a == val) {
+          return true;
+        }
+        val = a;
       }
-      val = a;
-    }
     return false;
   }
 }
