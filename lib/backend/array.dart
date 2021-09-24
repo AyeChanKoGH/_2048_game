@@ -150,12 +150,13 @@ class ArrayTile {
 
   bool checkAdjacentDuplicate(Iterable mylist) {
     int val = 0;
-    for (int a in mylist) {
-      if (a == val) {
-        return true;
+    if (mylist.length > 1)
+      for (int a in mylist) {
+        if (a == val) {
+          return true;
+        }
+        val = a;
       }
-      val = a;
-    }
     return false;
   }
 }

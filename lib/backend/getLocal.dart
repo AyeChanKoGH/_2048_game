@@ -47,6 +47,7 @@ Future<int> getScore() async {
 Future<List?> getLocalGrid() async {
   SharedPreferences _pref = await SharedPreferences.getInstance();
   String? string_grid = await _pref.getString(local_grid);
+  print(string_grid);
   if (string_grid == null) {
     return null;
   }
