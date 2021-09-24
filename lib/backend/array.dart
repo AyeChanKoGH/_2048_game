@@ -140,7 +140,7 @@ class ArrayTile {
   bool blocked() {
     List? vArray = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
     print(vArray);
-    var canSwipUpDown = vArray?.map((n) => vArray.map((row) => row[vArray.indexOf(n)]));
+    var canSwipUpDown = vArray?.map((n) => vArray.map((row) => row[vArray.indexOf(n)])).any((row) => checkAdjacentDuplicate(row));
 
     //row[vArray.indexOf(n)])); //any((row) => checkAdjacentDuplicate(row)) ?? false;
     print(canSwipUpDown);
