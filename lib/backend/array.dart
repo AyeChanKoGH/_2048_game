@@ -43,7 +43,6 @@ class ArrayTile {
 
   void addgrid() {
     List? grid = array?.map((row) => row.map((obj) => obj.value).toList()).toList();
-    print(grid);
     local.setlocal_value(json.encode(grid!));
   }
 
@@ -79,6 +78,7 @@ class ArrayTile {
     Pos n_tile = ety[_random.nextInt(ety.length)];
     final n_value = _random.nextInt(10) == 0 ? 4 : 2;
     addTile(n_tile.x, n_tile.y, Tile(n_value, isnew: true));
+    addgrid();
   }
 
   void addTile(x, y, Tile tile) {
