@@ -49,7 +49,33 @@ class MyTableViewState extends State<MyTableView> {
       if (grid == null) {
         _board = ArrayTile(w, h);
       } else {
-        _board = ArrayTile.fromjson(w, h, score, highscore, grid);
+        grid = [
+          [
+            2,
+            4,
+            4,
+            16
+          ],
+          [
+            4,
+            2,
+            32,
+            8
+          ],
+          [
+            16,
+            32,
+            64,
+            2
+          ],
+          [
+            2,
+            4,
+            8,
+            4
+          ]
+        ];
+        _board = ArrayTile.fromjson(w, h, score, highscore, grid!);
         isgameOver = _board?.blocked() ?? false;
       }
       isinitilize = true;
